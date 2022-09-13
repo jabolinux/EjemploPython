@@ -1,3 +1,3 @@
 ﻿# EjemploPython
-Proyecto django desarrollado para una prueba
+Proyecto Python-Django desarrollado para una prueba tecnica
 por Jaime Alfredo Bonilla Perez
