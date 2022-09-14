@@ -1,0 +1,68 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div class="container">
+    <form class="form-inline my-2 my-lg-0" action="vehiculo_listar">
+      	<input class="form-control mr-sm-2"  id="placa" name="placa" type="search" placeholder="Placa" aria-label="Placa">
+      	<input class="form-control mr-sm-2"  id="cedula" name="cedula" type="search" placeholder="Cedula" aria-label="Cedula">
+		<input class="form-control mr-sm-2"  id="propietario" name="propietario" type="search" placeholder="Propietario" aria-label="Propietario">
+
+		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar
+		</button>
+    </form>
+</div>
+<div>
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td>#</td>
+			<td>Placa</td>
+			<td>Clase</td>
+			<td>Modelo</td>
+			<td>Marca</td>
+			<td>Linea</td>
+			<td>Motor</td>
+			<td>Propietario</td>
+		</tr>
+
+	</thead>
+	<tbody>
+		{% if object_list %}
+		{% for vehiculo in object_list %}
+		<tr>
+			<td>{{vehiculo.id }}</td>
+            <td>{{vehiculo.placa}}</td>
+            <td>{{vehiculo.clase}}</td>
+            <td>{{vehiculo.modelo}}</td>
+            <td>{{vehiculo.marca}}</td>
+            <td>{{vehiculo.linea}}</td>
+            <td>{{vehiculo.motor}}</td>
+            <td>{{vehiculo.propietario}}</td>
+
+
+			<td>
+				<a class="btn btn-primary" href="{% url 'vehiculo:vehiculo_editar' vehiculo.id %}">Editar</a>
+				<a class="btn btn-danger" href="{% url 'vehiculo:vehiculo_eliminar' vehiculo.id %}">Eliminar</a>
+			</td>
+		</tr>
+		{% endfor %}
+
+		{% else %}
+		<h1>No hay registros de vehiculos</h1>
+		{% endif %}
+	</tbody>
+</table>
+</div>
+<ul class="pager">
+	<li>
+		{% if page_obj.has_previous %}
+       	 <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+		{% endif %}
+        </li>
+	<li>
+		{% if page_obj.has_next %}
+     	 <a href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+    	{% endif %}
+    </li>
+</ul>
+{% endblock%}

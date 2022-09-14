@@ -1,0 +1,65 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<form method="post">
+	{% csrf_token %}
+
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label for="{{form.placa.name}}">{{form.placa.label}}</label>
+				{{form.placa}}
+			</div>
+		</div>
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label for="{{form.clase.name}}">{{form.clase.label}}</label>
+				{{form.clase}}
+			</div>
+		</div>
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label for="{{form.modelo.name}}">{{form.modelo.label}}</label>
+				{{form.modelo}}
+			</div>
+		</div>
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label for="{{form.marca.name}}">{{form.marca.label}}</label>
+				{{form.marca}}
+			</div>
+		</div>
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label for="{{form.linea.name}}">{{form.linea.label}}</label>
+				{{form.linea}}
+			</div>
+		</div>
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label for="{{form.color.name}}">{{form.color.label}}</label>
+				{{form.color}}
+			</div>
+		</div>
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label for="{{form.motor.name}}">{{form.motor.label}}</label>
+				{{form.motor}}
+			</div>
+		</div>
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label for="{{form.propietario.name}}">{{form.propietario.label}}</label>
+				{{form.propietario}}
+			</div>
+		</div>
+	</div>
+	<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<button class="btn btn-primary" type="submit">Guardar</button>
+			</div>
+	</div>
+</form>
+{% endblock %}
+
+

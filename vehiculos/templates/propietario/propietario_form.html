@@ -1,0 +1,70 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<form method="post">
+	{% csrf_token %}
+
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label for="{{form.TipoDocumento.name}}">{{form.TipoDocumento.label}}</label>
+				{{form.TipoDocumento}}
+			</div>
+		</div>
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label for="{{form.NumeroDocumento.name}}">{{form.NumeroDocumento.label}}</label>
+				{{form.NumeroDocumento}}
+			</div>
+		</div>
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label for="{{form.PrimerApellido.name}}">{{form.PrimerApellido.label}}</label>
+				{{form.PrimerApellido}}
+			</div>
+		</div>
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label for="{{form.SegundoApellido.name}}">{{form.SegundoApellido.label}}</label>
+				{{form.SegundoApellido}}
+			</div>
+		</div>
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label for="{{form.PrimerNombre.name}}">{{form.PrimerNombre.label}}</label>
+				{{form.PrimerNombre}}
+			</div>
+		</div>
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label for="{{form.SegundoNombre.name}}">{{form.SegundoNombre.label}}</label>
+				{{form.SegundoNombre}}
+			</div>
+		</div>
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label for="{{form.FechaNacimiento.name}}">{{form.FechaNacimiento.label}}</label>
+				{{form.FechaNacimiento}}
+			</div>
+		</div>
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label for="{{form.Genero.name}}">{{form.Genero.label}}</label>
+				{{form.Genero}}
+			</div>
+		</div>
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label for="{{form.Email.name}}">{{form.Email.label}}</label>
+				{{form.Email}}
+			</div>
+		</div>
+	</div>
+	<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<button class="btn btn-primary" type="submit">Guardar</button>
+			</div>
+	</div>
+</form>
+{% endblock %}
+

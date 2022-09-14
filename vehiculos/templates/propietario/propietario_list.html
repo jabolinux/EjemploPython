@@ -1,0 +1,62 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td>#</td>
+            <td>Tipo de documento</td>
+            <td>Numero de documento</td>
+            <td>Primer apellido</td>
+            <td>Segundo apellido</td>
+            <td>Primer nombre</td>
+            <td>Segundo nombre</td>
+            <td>Fecha  de nacimiento</td>
+            <td>Genero</td>
+            <td>Email</td>
+            <td>Celular</td>
+		</tr>
+
+	</thead>
+	<tbody>
+		{% if object_list %}
+		{% for propietario in object_list %}
+		<tr>
+			<td>{{propietario.id }}</td>
+            <td>{{propietario.TipoDocumento}}</td>
+            <td>{{propietario.NumeroDocumento}}</td>
+            <td>{{propietario.PrimerApellido}}</td>
+            <td>{{propietario.SegundoApellido}}</td>
+            <td>{{propietario.PrimerNombre}}</td>
+            <td>{{propietario.SegundoNombre}}</td>
+            <td>{{propietario.FechaNacimiento}}</td>
+            <td>{{propietario.Genero}}</td>
+            <td>{{propietario.Email}}</td>
+            <td>{{propietario.Celular}}</td>
+
+			<td>
+				<a class="btn btn-primary" href="{% url 'propietario:propietario_editar' propietario.id %}">Editar</a>
+				<a class="btn btn-danger" href="{% url 'propietario:propietario_eliminar' propietario.id %}">Eliminar</a>
+			</td>
+		</tr>
+		{% endfor %}
+
+		{% else %}
+		<h1>No hay registros de propietarios</h1>
+		{% endif %}
+	</tbody>
+</table>
+<ul class="pager">
+	<li>
+		{% if page_obj.has_previous %}
+       	 <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+		{% endif %}
+        </li>
+	<li>
+		{% if page_obj.has_next %}
+     	 <a href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+    	{% endif %}
+    </li>
+</ul>
+{% endblock%}
